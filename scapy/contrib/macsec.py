@@ -125,6 +125,7 @@ class MACsecSA(object):
         payload = hdr.payload
         del hdr.payload
         tag = MACsec(SCI=self.sci, AN=self.an,
+                     ES=not self.send_sci,
                      SC=self.send_sci,
                      E=self.e_bit(), C=self.c_bit(),
                      SL=MACsecSA.shortlen(pkt),
